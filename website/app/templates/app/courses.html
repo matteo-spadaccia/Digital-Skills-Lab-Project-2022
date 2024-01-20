@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Freshers' week - Courses</title>
+    <link rel="stylesheet" href="/static/app/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <img src='../../static/img/logo_luiss.png' class="header_logo">
+       
+        <ul class="header_menu">
+            <li class="header_menu_item"><a href='/app/'>Opportunities</a></li>
+            <li class="header_menu_item"><a href="/app/courses/">Courses</a></li>
+            <li class="header_menu_item"><a href="/app/events/">Events</a></li>
+        </ul>
+
+    </header>
+
+    <section class="banner">
+
+        <div class="banner_title">
+            <div class="banner_title_copy">
+                <h3>Freshers' week</h3>
+                <h1>Courses</h1>
+            </div>
+        </div>
+     
+    </section> 
+    
+    <section>
+
+        <div class="text_block">
+
+            <h3>Which course are you interested in?</h3>
+
+        </div>
+
+        <section>
+
+            {% for department in departments %}
+                <section class="text_block">
+                    <h4>{{ department.name }}</h4>
+                </section>
+
+                <section class="selectables">
+                    {% for course in courses %}
+                        {% if course.department == department %}
+                            <div class="selectable">            
+                                <div class="selectable_copy">
+                                    <h3>{{ course }}</h3>
+                                    <a href='/app/courses/{{ course.pk }}' class="button">For More</a>
+                                </div>
+                            </div>
+                        {% endif %} 
+                    {% endfor %}              
+                </section>
+            {% endfor %}
+
+        </section>
+
+    </section>
+
+    <footer class="footer">
+        <small>©2022 Author. Design by MCL&MS</small>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src='/static/script.js'></script>
+
+</body>
+</html>

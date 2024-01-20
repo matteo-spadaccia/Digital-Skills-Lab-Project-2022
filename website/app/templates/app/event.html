@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <title>Freshers' week - {{ event.name }}</title>
+    <link rel="stylesheet" href="/static/app/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <img src='../../static/img/logo_luiss.png' class="header_logo">
+       
+        <ul class="header_menu">
+            <li class="header_menu_item"><a href='/app/'>Opportunities</a></li>
+            <li class="header_menu_item"><a href="/app/courses/">Courses</a></li>
+            <li class="header_menu_item"><a href="/app/events/">Events</a></li>
+        </ul>
+
+    </header>
+
+    <section class="banner">
+
+        <div class="banner_title">
+            <div class="banner_title_copy">
+                <h1>{{ event.name }}</h1>
+                <h3>at Freshers' week</h3>
+            </div>
+        </div>
+     
+    </section>
+    
+    <section>
+
+        <div class="path">
+            <h5 class="path_item"><a href='/app/'>Opportunities</a> > <a href='/app/{{ department.pk }}'>{{ department.name }}</a> > <a href="/app/events/{{ event.pk }}">{{ event.name }}</a></h5>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="text_block">
+            <p class="text">
+                {{event.description}}
+            <p>
+            <h3>Date: {{ event.datetime }}</h3>
+        </div>
+        
+    </section>
+
+    <section class="text_block">
+
+        <h3>Booking form:</h3>
+
+        <form name="bookings" method="get" onsubmit="return validateForm()">
+            Name: <input type="text" name="fname">
+            Surname: <input type="text" name="fsurname">
+            email: <input type="text" name="femail">
+            <input type="submit" value="Submit">
+        </form>
+
+    </section>
+
+    <footer class="footer">
+        <small>©2022 Author. Design by MCL&MS</small>
+    </footer>
+
+    <script src='/static/script.js'></script>
+
+</body>
+</html>
